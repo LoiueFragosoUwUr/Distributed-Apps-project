@@ -1,0 +1,33 @@
+{% extends "AplicacionesApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+    <div style="float:right; margin: 30px;">
+        {% if request.user.is_authenticated %}
+            {% include "carro/widgets.html" %}
+        {% else %}
+            <div class="alert alert-danger text-center">Inicia sesion para ver el carro de compras</div>
+        {% endif %}
+    </div>
+    <div class="row">
+{% for producto in productos %}
+    <div class="col-3">
+        <div class="card" align="center" style="width: 200px; height: 300px; margin: 20px">
+            <img class="card-img-top" src="{{producto.imagen.url}}" style="width: 150; height: 150;">
+
+            <div class="card-body" style="text-align: center;">
+                <h7 style="font-size:75%; text-align:center;" class="card-title">{{producto.nombre}}</h7>
+                <p style="font-size:75%; text-align:center;" class="card-text">&nbsp;${{producto.precio}}</p>
+            </div>
+            <div class="card-footer text-center">
+                <a href="{% url 'carro:agregar' producto.id %}" class="btn btn-success">Purchase this item</a>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+    </div>
+
+{% endblock %}
