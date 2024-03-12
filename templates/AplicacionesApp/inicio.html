@@ -1,0 +1,44 @@
+{% extends "AplicacionesApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+   <!-- Heading -->
+   <section class="page-section clearfix">
+    <div class="container">
+      <div class="intro">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'AplicacionesApp/img/principal_2.jpg' %}" alt="">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4" >
+            <span class="section-heading-upper">Trippy comic books</span>
+            <span class="section-heading-lower">The trippiest comics you will see ever</span>
+          </h2>
+          <p class="mb-3"> We offer the most trippiests comic books on earth, such as the Michael Deforge series.
+          </p>
+         
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  
+    <!-- Message -->
+    <section class="page-section cta">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <div class="cta-inner text-center rounded">
+              <h2 class="section-heading mb-4">
+                <span class="section-heading-upper">Free shipping to every place in the world</span>
+                <span class="section-heading-lower">New comics or in a good shape</span>
+              </h2>
+              <p class="mb-0">We prioritize our clients' experience over anything with the aim of encourage them to get closer to this culture.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% endblock %}

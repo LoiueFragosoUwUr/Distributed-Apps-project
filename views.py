@@ -1,10 +1,15 @@
-from django.shortcuts import render, HttpResponse
-from Carro.carro import Carro
+from django.shortcuts import render
+
+from Blog.models import Post, Categoria
 
 # Create your views here.
 
-def inicio(request):
+def blog(request):
 
-    carro=Carro(request)
+    posts = Post.objects.all()
+    return render(request, "blog/blog.html", {"post": posts})
 
-    return render(request, "AplicacionesApp/inicio.html")
+def categoria(request, categoria_id):
+    categoria=Categoria.objects.get(id=categoria_id)
+    posts = Post.objects.filter(categorias=categoria)
+    return render (request, "blog/categoria.html", {'categoria':categoria, "post": posts})
